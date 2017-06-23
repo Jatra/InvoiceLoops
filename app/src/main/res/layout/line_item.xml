@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+    style="@style/LineItem">
+    <TextView
+        android:id="@+id/description"
+        style="@style/Description"
+        android:text="description"/>
+
+    <TextView
+        android:id="@+id/cost"
+        style="@style/Cost"
+        android:text="£££"/>
+
+</LinearLayout>
