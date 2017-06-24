@@ -6,11 +6,29 @@
     android:layout_height="match_parent"
     tools:context="uk.co.jatra.invoice.MainActivity">
 
-    <uk.co.jatra.invoice.InvoiceView
-        android:id="@+id/invoice_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="uk.co.jatra.invoice.MainActivity">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    </uk.co.jatra.invoice.InvoiceView>
+
+        <TextClock
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="48sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <uk.co.jatra.invoice.InvoiceView
+            android:id="@+id/invoice_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="uk.co.jatra.invoice.MainActivity">
+
+        </uk.co.jatra.invoice.InvoiceView>
+    </LinearLayout>
 </ScrollView>

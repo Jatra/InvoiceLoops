@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="horizontal"
     style="@style/LineItem">
     <TextView
         android:id="@+id/description"
         style="@style/Description"
-        android:text="description"/>
+        android:textAppearance="@style/LineItemAppearance"
+        tools:text="description"/>
 
     <TextView
         android:id="@+id/cost"
         style="@style/Cost"
-        android:text="£££"/>
+        android:textAppearance="@style/LineItemAppearance"
+        tools:text="£££"/>
 
 </LinearLayout>
