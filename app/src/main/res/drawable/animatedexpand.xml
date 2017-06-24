@@ -1,6 +1,0 @@
-<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:drawable="@drawable/ic_expand_more_black_24px" >
-    <target
-        android:name="indicator"
-        android:animation="@anim/expand" />
-</animated-vector>
