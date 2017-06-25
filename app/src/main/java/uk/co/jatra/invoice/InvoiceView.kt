@@ -17,8 +17,10 @@ import android.widget.TextView
 
 class InvoiceView : LinearLayout {
 
-    private lateinit var arrow : ImageView
+    private lateinit var headerArrow: ImageView
+    private lateinit var footerArrow: ImageView
     private lateinit var header : View
+    private lateinit var footer : View
     private var open: Boolean = true
 
     constructor(context: Context) : super(context) {
@@ -42,15 +44,25 @@ class InvoiceView : LinearLayout {
         for (group in invoice.groups) {
             addItemGroup(group)
         }
+        addFooterView(invoice)
     }
 
     private fun addHeaderView(invoice: Invoice) {
         header = LayoutInflater.from(context).inflate(R.layout.invoice_header, null)
         (header.findViewById(R.id.header_text) as TextView).text = invoice.title
-        arrow = header.findViewById(R.id.header_arrow) as ImageView
-        setArrowExpanded(true)
+        headerArrow = header.findViewById(R.id.header_arrow) as ImageView
+        setHeaderArrowExpanded(true)
         header.setOnClickListener { toggleExpand() }
         addView(header)
+    }
+
+    private fun addFooterView(invoice: Invoice) {
+        footer = LayoutInflater.from(context).inflate(R.layout.invoice_header, null)
+        (footer.findViewById(R.id.header_text) as TextView).text = invoice.title
+        footerArrow = footer.findViewById(R.id.header_arrow) as ImageView
+        setFooterArrowExpanded(true)
+        footer.setOnClickListener { toggleExpand() }
+        addView(footer)
     }
 
 
@@ -63,12 +75,17 @@ class InvoiceView : LinearLayout {
         }
 
         open = !open
-        setArrowExpanded(open)
+        setHeaderArrowExpanded(open)
     }
 
-    private fun setArrowExpanded(selected: Boolean) {
-        val stateSet = if (selected) intArrayOf(android.R.attr.state_expanded) else intArrayOf()
-        arrow.setImageState(stateSet, true)
+    private fun setHeaderArrowExpanded(expanded: Boolean) {
+        val stateSet = if (expanded) intArrayOf(android.R.attr.state_expanded) else intArrayOf()
+        headerArrow.setImageState(stateSet, true)
+    }
+
+    private fun setFooterArrowExpanded(expanded: Boolean) {
+        val stateSet = if (expanded) intArrayOf(android.R.attr.state_expanded) else intArrayOf()
+        footerArrow.setImageState(stateSet, true)
     }
 
     private fun addItemGroup(group: ItemGroup) {
